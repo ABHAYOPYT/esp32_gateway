@@ -2,9 +2,7 @@
 from flask import Flask, request, jsonify
 import openai
 import os
-
 app = Flask(__name__)
-
 # Load your OpenAI API key from Render environment variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -54,5 +52,7 @@ def upload_audio():
     return jsonify({"answer": answer})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
+
 
