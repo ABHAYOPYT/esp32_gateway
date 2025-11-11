@@ -1,2 +1,4 @@
 flask
-openai
+python-dotenv
+google-genai
+werkzeug
